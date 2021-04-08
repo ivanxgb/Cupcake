@@ -1,9 +1,13 @@
 package com.example.cupcake.model
 
+import android.content.Context
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import androidx.navigation.fragment.NavHostFragment.findNavController
+import com.example.cupcake.R
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -65,6 +69,11 @@ class OrderViewModel: ViewModel() {
         _flavor.value = ""
         _date.value = dateOptions[0]
         _price.value = 0.0
+    }
+
+    fun cancelOrder(fragment: Fragment ,navigationAction: Int) {
+        resetOrder()
+        findNavController(fragment).navigate(navigationAction)
     }
 
     private fun updatePrice() {

@@ -63,6 +63,10 @@ class SummaryFragment : Fragment() {
         Toast.makeText(activity, "Send Order", Toast.LENGTH_SHORT).show()
     }
 
+    fun cancelOrder() {
+        sharedViewModel.cancelOrder(this, R.id.action_summaryFragment_to_startFragment)
+    }
+
     /**
      * This fragment lifecycle method is called when the view hierarchy associated with the fragment
      * is being removed. As a result, clear out the binding object.
